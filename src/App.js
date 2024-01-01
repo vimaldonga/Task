@@ -5,7 +5,7 @@ import Surch from './Surch';
 function App() {
   return (
    <>
-<Surch/>
+<Surch />
    </>
   );
 }
