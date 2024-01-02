@@ -1,65 +1,98 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Select from "react-select";
 
 const Surch = () => {
-  const data = [
-    { name: "vimal", surname: "donga" },
-    { name: "rutvik", surname: "ambreliya" },
-    { name: "umesh", surname: "panseriya" },
-    { name: "brijesh", surname: "kyada" },
-    { name: "nirav", surname: "lakhani" },
-    { name: "yagnik", surname: "thummat" },
-    { name: "vimay", surname: "paghadal" },
+  const options = [
+    { value: "vimal", label: "donga" },
+    { value: "rutvik", label: "ambreliya" },
+    { value: "umesh", label: "panseriya" },
+    { value: "brijesh", label: "kyada" },
+    { value: "nirav", label: "lakhani" },
+    { value: "yagnik", label: "thummat" },
+    { value: "vimay", label: "paghadal" },
   ];
 
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filteredData, setFilteredData] = useState(data);
+  
 
-  const handleInputChange = (event) => {
-    const { value } = event.target;
-    setSearchTerm(value);
-    filterData(value);
-  };
-
-  const filterData = (value) => {
-    const filtered = data.filter(item =>
-      // item.name.toLowerCase().includes(value.toLowerCase()) || 
-      item.surname.toLowerCase().includes(value.toLowerCase())
-    );
-    setFilteredData(filtered);
-  };
-
-  const handleOptionClick = (name, surname) => {
-    setSearchTerm(`${name} ${surname}`);
-    
-  };
 
   return (
-    <div>
-    <label>Enter Name : </label>
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchTerm}
-        onChange={handleInputChange}
-      />
-      
-        <ul>
-          {filteredData.map((item, index) => (
-            <li 
-              key={index} 
-              onClick={() => handleOptionClick(item.name, item.surname)}
-              style={{ cursor: 'pointer' }}
-            >
-              {item.name} {item.surname}
-            </li>
-          ))}
-        </ul>
     
+   <>
+    <div className="container">
+      <div className="mt-5 m-auto w-50">
+      <Select options={options}/>
+       </div>
     </div>
-  );
+
+   </>
+  )
 };
 
 export default Surch;
+
+
+// import React, { useState, useEffect, useRef } from 'react';
+
+// const Surch = () => {
+//   const data = [
+//     { name: "vimal", surname: "donga" },
+//     { name: "rutvik", surname: "ambreliya" },
+//     { name: "umesh", surname: "panseriya" },
+//     { name: "brijesh", surname: "kyada" },
+//     { name: "nirav", surname: "lakhani" },
+//     { name: "yagnik", surname: "thummat" },
+//     { name: "vimay", surname: "paghadal" },
+//   ];
+
+//   const [searchTerm, setSearchTerm] = useState('');
+//   const [filteredData, setFilteredData] = useState(data);
+
+//   const handleInputChange = (event) => {
+//     const { value } = event.target;
+//     setSearchTerm(value);
+//     filterData(value);
+//   };
+
+//   const filterData = (value) => {
+//     const filtered = data.filter(item =>
+//       // item.name.toLowerCase().includes(value.toLowerCase()) || 
+//       item.surname.toLowerCase().includes(value.toLowerCase())
+//     );
+//     setFilteredData(filtered);
+//   };
+
+//   const handleOptionClick = (name, surname) => {
+//     setSearchTerm(`${name} ${surname}`);
+    
+//   };
+
+//   return (
+//     <div>
+//     <label>Enter Name : </label>
+//       <input
+//         type="text"
+//         placeholder="Search..."
+//         value={searchTerm}
+//         onChange={handleInputChange}
+//       />
+      
+//         <ul>
+//           {filteredData.map((item, index) => (
+//             <li 
+//               key={index} 
+//               onClick={() => handleOptionClick(item.name, item.surname)}
+//               style={{ cursor: 'pointer' }}
+//             >
+//               {item.name} {item.surname}
+//             </li>
+//           ))}
+//         </ul>
+    
+//     </div>
+//   );
+// };
+
+// export default Surch;
 
 
 
